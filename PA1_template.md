@@ -20,7 +20,7 @@ Let's take a look at a histogram of the total number of steps taken each day:
 
 ```r
 sum_dates=tapply(data$steps,data$date,function(x){sum(x,na.rm=TRUE)})
-hist(sum_dates,main="Total steps per day",xlab="Total steps per day")
+hist(sum_dates,breaks=20,main="Total steps per day",xlab="Total steps per day")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
@@ -80,7 +80,7 @@ Now let's repeat the steps we did earlier when looking at the total number of st
 
 ```r
 sum_dates=tapply(data$steps,data$date,sum)
-hist(sum_dates,main="Total steps per day",xlab="Total steps per day")
+hist(sum_dates,breaks=20,main="Total steps per day",xlab="Total steps per day")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
@@ -104,7 +104,7 @@ median(sum_dates)
 ## [1] 10766.19
 ```
 
-It looks like there's a pretty substantial difference. The histogram is fairly symmetric now, when before it was somewhat right-skewed. And both the mean and the median are higher than before, which can be expected since we are adding new values to the dataset.
+It looks like there's a pretty substantial difference. The peak is larger now, with fewer 0-step days.And both the mean and the median are higher than before, which can be expected since we are adding new values to the dataset.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 Let's add a new column to our dataset, "day", which will be "weekday" or "weekend" depending on the date.
